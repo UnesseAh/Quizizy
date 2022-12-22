@@ -1,0 +1,23 @@
+.main-section{
+    height: 70vh;
+    outline: 2px solid red;
+    display: flex;
+    .left-section {
+        padding: 5rem;
+        width: 50%;
+        outline: 2px solid red; 
+
+    }
+    .right-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        outline: 2px solid red;
+        width: 50%;
+    }
+    img {
+        outline: 2px solid red;
+        width: 500px;
+    }
+}
