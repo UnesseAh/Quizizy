@@ -1,0 +1,20 @@
+footer {
+    height: 25vh;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    outline: 2px solid red;
+    
+    div{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        outline: 2px solid green;
+        img {
+            width: 10rem;
+        }
+    }
+
+
+}
