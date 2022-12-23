@@ -3,7 +3,7 @@ let secondStep = document.getElementById("secondStep");
 let thirstStep = document.getElementById("thirdStep");
 
 let getResults = document.getElementById("getResults");
-getResults.addEventListener("click", () => thirstStep.classList.add("completed") );
+getResults.addEventListener("click", () => thirstStep.classList.add("completed"));
 
 
 startQuizButton.addEventListener("click",()=>secondStep.classList.add("completed"));
@@ -41,13 +41,18 @@ let answeareD = document.querySelector(".answeareD")
 
 
 let counter = 0;
+const shuffledQuestions = questions.sort(() => Math.random() - .5);
+console.log(shuffledQuestions);
 
 function fetchData(){
-    question.innerHTML = questions[counter].question;
-    answeareA.innerHTML = questions[counter].choiceA;
-    answeareB.innerHTML = questions[counter].choiceB;
-    answeareC.innerHTML = questions[counter].choiceC;
-    answeareD.innerHTML = questions[counter].choiceD;
+    question.innerHTML = shuffledQuestions[counter].question;
+    answeareA.innerHTML = shuffledQuestions[counter].choiceA;
+    answeareB.innerHTML = shuffledQuestions[counter].choiceB;
+    answeareC.innerHTML = shuffledQuestions[counter].choiceC;
+    answeareD.innerHTML = shuffledQuestions[counter].choiceD;
+    // if(counter == 11){
+    //     getResults.classList.remove('hide');
+    // }
 }
 
 fetchData();

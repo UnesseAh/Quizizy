@@ -1,7 +1,7 @@
 //create the quiz questions
 let questions = [
       {
-        question: "Why is AWS more economical than traditional data centers for applications with varying compute workloads?",
+        question: "1) Why is AWS more economical than traditional data centers for applications with varying compute workloads?",
         choiceA: "Amazon EC2 costs are billed on a monthly basis",
         choiceB: "Users retain full administrative access to their Amazon EC2 instances.",
         choiceC: "Amazon EC2 instances can be launched on demand when needed",
@@ -9,7 +9,7 @@ let questions = [
         correct: "C",
       },
       {
-        question: "Which AWS service would simplify the migration of a database to AWS?",
+        question: "2) Which AWS service would simplify the migration of a database to AWS?",
         choiceA: "AWS Storage Gateway",
         choiceB: "AWS Database Migration Service (AWS DMS)",
         choiceC: "Amazon EC2",
@@ -17,7 +17,7 @@ let questions = [
         correct: "B",
       },
       {
-        question: " Which AWS offering enables users to find, buy, and immediately start using software solutions in their AWS environment?",
+        question: "3) Which AWS offering enables users to find, buy, and immediately start using software solutions in their AWS environment?",
         choiceA: "AWS Config",
         choiceB: "AWS OpsWorks",
         choiceC: "AWS SDK",
@@ -25,7 +25,7 @@ let questions = [
         correct: "D",
       },
       {
-        question:"Which AWS networking service enables a company to create a virtual network within AWS?",
+        question:"4) Which AWS networking service enables a company to create a virtual network within AWS?",
         choiceA: "AWS Config",
         choiceB: "Amazon Route 53",
         choiceC: "AWS Direct Connect",
@@ -33,7 +33,7 @@ let questions = [
         correct: "D",
       },
       {
-        question: "Which of the following is an AWS responsibility under the AWS shared responsibility model?",
+        question: "5) Which of the following is an AWS responsibility under the AWS shared responsibility model?",
         choiceA: "Configuring third-party applications",
         choiceB: "Maintaining physical hardware",
         choiceC: "Securing application access and data",
@@ -41,7 +41,7 @@ let questions = [
         correct: "B",
       },
       {
-        question: "Which component of the AWS global infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
+        question: "6) Which component of the AWS global infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
         choiceA: "AWS Regions",
         choiceB: "Edge locations",
         choiceC: "Availability Zones",
@@ -49,7 +49,7 @@ let questions = [
         correct: "B",
       },
       {
-        question: "How would a system administrator add an additional layer of login security to a user's AWS Management Console?",
+        question: "7) How would a system administrator add an additional layer of login security to a user's AWS Management Console?",
         choiceA: "Use Amazon Cloud Directory",
         choiceB: "Audit AWS Identity and Access Management (IAM) roles",
         choiceC: "Enable multi-factor authentication",
@@ -57,7 +57,7 @@ let questions = [
         correct: "C",
       },
       {
-        question: "Which service can identify the user that made the API call when an Amazon EC2 instance is terminated?",
+        question: "8) Which service can identify the user that made the API call when an Amazon EC2 instance is terminated?",
         choiceA: "AWS Trusted Advisor",
         choiceB: "AWS CloudTrail",
         choiceC: "AWS X-Ray",
@@ -65,7 +65,7 @@ let questions = [
         correct: "B",
       },
       {
-        question: "Which service would be used to send alerts based on Amazon CloudWatch alarms?",
+        question: "9) Which service would be used to send alerts based on Amazon CloudWatch alarms?",
         choiceA: "Amazon Simple Notification Service (Amazon SNS)",
         choiceB: "AWS CloudTrail",
         choiceC: "AWS Trusted Advisor",
@@ -73,7 +73,7 @@ let questions = [
         correct: "A",
       },
       {
-        question: "Where can a user find information about prohibited actions on the AWS infrastructure?",
+        question: "10) Where can a user find information about prohibited actions on the AWS infrastructure?",
         choiceA: "AWS Trusted Advisor",
         choiceB: "AWS Identity and Access Management (IAM)",
         choiceC: "AWS Billing Console",
