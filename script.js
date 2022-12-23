@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 let question = document.querySelector(".question")
-let answeareA = document.querySelector(".answeareA")
-let answeareB = document.querySelector(".answeareB")
-let answeareC = document.querySelector(".answeareC")
-let answeareD = document.querySelector(".answeareD")
+let answereA = document.querySelector(".answeareA")
+let answereB = document.querySelector(".answeareB")
+let answereC = document.querySelector(".answeareC")
+let answereD = document.querySelector(".answeareD")
 
 
 let counter = 0;
@@ -46,10 +46,10 @@ console.log(shuffledQuestions);
 
 function fetchData(){
     question.innerHTML = shuffledQuestions[counter].question;
-    answeareA.innerHTML = shuffledQuestions[counter].choiceA;
-    answeareB.innerHTML = shuffledQuestions[counter].choiceB;
-    answeareC.innerHTML = shuffledQuestions[counter].choiceC;
-    answeareD.innerHTML = shuffledQuestions[counter].choiceD;
+    answereA.innerHTML = shuffledQuestions[counter].choiceA;
+    answereB.innerHTML = shuffledQuestions[counter].choiceB;
+    answereC.innerHTML = shuffledQuestions[counter].choiceC;
+    answereD.innerHTML = shuffledQuestions[counter].choiceD;
     // if(counter == 11){
     //     getResults.classList.remove('hide');
     // }
