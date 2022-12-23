@@ -1,5 +1,11 @@
 .container {
+    height: 100vh;
     background-color: $primary-color;
     color: white;
+    font-family: 'Apercu', sans-serif;
+}
+
+img {
+    width: 10vw;
 }
 

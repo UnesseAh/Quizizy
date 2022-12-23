@@ -1,7 +1,7 @@
 .stepper-wrapper {
-    margin-top: 10vh;
     display: flex;
     justify-content: space-between;
+    padding-top: 20px;
     margin-bottom: 20px;
     .stepper-item {
         position: relative;
@@ -11,7 +11,7 @@
         flex: 1;
     }
     .step-counter {
-        outline: 2px solid red;
+        outline: 2px solid $secondary-color;
         position: relative;
         z-index: 5;
         display: flex;
@@ -24,7 +24,7 @@
         margin-bottom: 8px;
     }
     .completed .step-counter {
-        background-color: red;
+        background-color: $secondary-color;
     }
 }
 
@@ -57,7 +57,7 @@
 .stepper-item.completed::before {
     position: absolute;
     content: "";
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid $secondary-color;
     width: 100%;
     top: 20px;
     left: -50%;
@@ -74,7 +74,6 @@
 
 
 
-// Second Stepper
 // .stepper-componnent {
 //   width:80%;
 //   margin-left: 10%;

@@ -1,0 +1,38 @@
+.information-section {
+    h1 {
+        color: $teriary-color;
+        margin: 0;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding: 1rem;
+    margin: 0 auto;
+    border: 2px solid white;
+    .information-paragraph{
+        margin-top: 1.4rem;
+        width: 70%;
+        background-color: white;
+        color: $primary-color;
+        padding: 1em;
+        font-weight: bold;
+    }
+    p{
+        margin: 10px;
+        width: 70%;
+        outline: 2px solid white;
+        padding: 1em;
+    }
+
+    .rules {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 20px 0;
+        width: 60%;
+    }
+
+
+
+}

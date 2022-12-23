@@ -1,26 +1,26 @@
 //Abstracts
-@import './abstracts/colors';
+@import 'abstracts/colors';
 
-//Base 
-@import './base/normalize';
-@import './base/base'; 
+//Base
+@import 'base/base';
+@import 'base/normalize';
 
 
 
 //Components
-@import './components/stepper';
+@import 'components/stepper';
+@import 'components/button';
 
 //Layout
-@import './layout/navbar';
-@import './layout/landingpage';
-@import './layout/footer';
+@import 'layout/navbar';
+@import 'layout/footer';
+@import 'layout/information';
+@import 'layout/quiz';
+@import 'layout/results';
 
 
 //Pages
-@import './pages/quiz-page';
+@import 'pages/landingpage';
+@import 'pages/quiz-page';
 
-//Themes
-
-//Vendor
-@import './vendors/bootstrap';
 
