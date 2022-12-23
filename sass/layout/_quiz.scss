@@ -26,6 +26,10 @@
             cursor: pointer;
         }
     }
+    .progressBarAndCounterContainer{
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 

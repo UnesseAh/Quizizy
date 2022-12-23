@@ -1,3 +1,9 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .hide {
   display: none;
 }
@@ -482,6 +488,24 @@ template {
   cursor: pointer;
 }
 
+.counterContainer {
+  margin-bottom: 20px;
+}
+
+.progressBar {
+  width: 40%;
+  height: 1.2em;
+  outline: 2px solid;
+  border-radius: 1.5em;
+  padding: 0px;
+}
+
+.progressCounter {
+  background-color: red;
+  height: 100%;
+  border-radius: 1.5em;
+}
+
 header {
   padding: 0 3.3rem;
   background-color: #232f3e;
@@ -600,6 +624,10 @@ footer div img {
   background-color: white;
   color: #10162F;
   cursor: pointer;
+}
+.quiz-section .progressBarAndCounterContainer {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 600px) {

@@ -45,13 +45,18 @@
 
         <!-- Quiz Section -->
         <div class="quiz-section" id="quiz-section">
-            <h2>Quiz</h2>
+            <div class="counterContainer">
+                <div class="progressBar" id="progressBar">
+                    <div class="progressCounter"></div>
+                    <div class="timeContainer">Time Counter : <span class="timeCounter"></span></div>
+                </div>
+            </div>
             <p><span class="question"></span></p>
             <div class="questions-container">
-                <div class="card"><span class="questionOrder">A)</span> <span class="answeareA"> </span></div>
-                <div class="card"><span class="questionOrder">B)</span> <span class="answeareB"> </span></div>
-                <div class="card"><span class="questionOrder">C)</span> <span class="answeareC"> </span></div>
-                <div class="card"><span class="questionOrder">D)</span> <span class="answeareD"> </span></div>
+                <div class="card"><span class="questionOrder">A)</span> <span class="answereA"> </span></div>
+                <div class="card"><span class="questionOrder">B)</span> <span class="answereB"> </span></div>
+                <div class="card"><span class="questionOrder">C)</span> <span class="answereC"> </span></div>
+                <div class="card"><span class="questionOrder">D)</span> <span class="answereD"> </span></div>
             </div>
             <button class="button" id="nextQuestion">Next Question</button>
             <button class="button hide" id="getResults">show Results</button>

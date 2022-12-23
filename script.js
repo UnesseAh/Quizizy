@@ -1,6 +1,6 @@
-let startQuizButton = document.getElementById("startQuiz");
-let secondStep = document.getElementById("secondStep");
-let thirstStep = document.getElementById("thirdStep");
+const startQuizButton = document.getElementById("startQuiz");
+const secondStep = document.getElementById("secondStep");
+const thirstStep = document.getElementById("thirdStep");
 
 let getResults = document.getElementById("getResults");
 getResults.addEventListener("click", () => thirstStep.classList.add("completed"));
@@ -30,18 +30,22 @@ document.addEventListener("DOMContentLoaded", function() {
     startQuizButton.addEventListener("click", function() {
       quizSection.style.display = "";
       informationSection.style.display = "none";
+      progressCounter.style.width = "10%";
+
+
     });
   });
 
 let question = document.querySelector(".question")
-let answereA = document.querySelector(".answeareA")
-let answereB = document.querySelector(".answeareB")
-let answereC = document.querySelector(".answeareC")
-let answereD = document.querySelector(".answeareD")
-
+let answereA = document.querySelector(".answereA")
+let answereB = document.querySelector(".answereB")
+let answereC = document.querySelector(".answereC")
+let answereD = document.querySelector(".answereD")
 
 let counter = 0;
+
 const shuffledQuestions = questions.sort(() => Math.random() - .5);
+
 console.log(shuffledQuestions);
 
 function fetchData(){
@@ -50,6 +54,7 @@ function fetchData(){
     answereB.innerHTML = shuffledQuestions[counter].choiceB;
     answereC.innerHTML = shuffledQuestions[counter].choiceC;
     answereD.innerHTML = shuffledQuestions[counter].choiceD;
+
     // if(counter == 11){
     //     getResults.classList.remove('hide');
     // }
@@ -59,11 +64,19 @@ fetchData();
 
 let nextQuestion = document.getElementById("nextQuestion");
 
+let progressCounter = document.querySelector(".progressCounter");
+
+let x = 10;
+
 nextQuestion.addEventListener("click", () => {
+  x += 10;
+  if(x<=100){
+    progressCounter.style.width = x  + "%";
+    console.log(x);
     counter++;
     fetchData();
+  }
 })
 
-function showNextQuestion(){
 
-}
+let timeCounter = "";
