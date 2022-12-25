@@ -488,6 +488,10 @@ template {
   cursor: pointer;
 }
 
+#nextQuestion {
+  display: none;
+}
+
 .counterContainer {
   margin-bottom: 20px;
 }
