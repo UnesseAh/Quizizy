@@ -653,6 +653,11 @@ footer div img {
   color: #FFD300;
 }
 
+.results-container {
+  outline: 2px solid white;
+  padding: 20px;
+}
+
 .main-section {
   height: 70vh;
   outline: 2px solid red;

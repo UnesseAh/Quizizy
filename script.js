@@ -108,27 +108,29 @@ card.forEach((cards) => {
   cards.onclick = () => {
     if(cards.children[0].textContent === questions[arrayIndex].correct){
       correctAnswers++;
-      userScore.textContent += `${correctAnswers}/10`;
+      userScore.textContent = `${correctAnswers}/10`;
     }
-    newArray.push(cards.children[0].textContent);
-    
+    newArray.push(cards.children[1].textContent);
     nextQuestion.click();
     }
 })
 
 /********************* Display Results *******************/
-const showResultsButton = document.querySelector('#showResults');
-const resultsContainer = document.querySelector('.resultsContainer');
+
 const userScore = document.querySelector('.userScore');
 
+const showResultsButton = document.querySelector('#showResults');
+const resultsContainer = document.querySelector('.results-container');
+
 showResultsButton.addEventListener("click", () => {
-  console.log(1);
-  resultsContainer.classList.remove('hide');
   displayResults();
+  resultsContainer.classList.remove('hide');
 });
 
-// function displayResults(){
-// }
+
+function displayResults(){
+  
+}
 
 
 
