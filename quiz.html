@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Jquery cdn -->
+    <!-- Jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <!-- Link CSS with HTML -->
     <link rel="stylesheet" href="./sass/main.css">
@@ -15,8 +15,6 @@
 </head>
 <body>
     <div class="container">
-        
-        <!-- <div><img src="img/quizizy-logo-mini.jpg" alt=""></div> -->
 
         <!-- Stepper Section -->
         <div class="stepper-wrapper">
@@ -54,21 +52,25 @@
             </div>
             <p><span class="question"></span></p>
             <div class="questions-container">
-                <div class="card"><span class="questionOrder">A)</span> <span class="answereA"> </span></div>
-                <div class="card"><span class="questionOrder">B)</span> <span class="answereB"> </span></div>
-                <div class="card"><span class="questionOrder">C)</span> <span class="answereC"> </span></div>
-                <div class="card"><span class="questionOrder">D)</span> <span class="answereD"> </span></div>
+                <div class="card"><span class="questionOrder">A)</span> <span class="answerA"> </span></div>
+                <div class="card"><span class="questionOrder">B)</span> <span class="answerB"> </span></div>
+                <div class="card"><span class="questionOrder">C)</span> <span class="answerC"> </span></div>
+                <div class="card"><span class="questionOrder">D)</span> <span class="answerD"> </span></div>
             </div>
             <button class="button" id="nextQuestion">Next Question</button>
-            <button class="button hide" id="getResults">show Results</button>
         </div>
 
         <!-- Results Section -->
         <div class="results-section" id="results-section">
-            <h3 >Your Results <i class="bi bi-stars"></i></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum alias eius accusamus eum sint, ducimus maxime id necessitatibus vel, ipsam veritatis doloribus sunt obcaecati labore aperiam officia dolores dolorem inventore autem omnis exercitationem quam</p>
-            
+            <h3 >Your Score <i class="bi bi-stars"></i> :</h3>
+            <div class="userScore"></div>
             <button class="button" id="restartQuiz">Restart Quiz</button>
+            <button class="button" id="showResults">Display Results</button>
+            <div class="results-container">
+                <p>Your Results: </p>
+            </div>
+            
+            
         </div>
     </div>
 
