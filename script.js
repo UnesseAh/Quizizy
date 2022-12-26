@@ -65,7 +65,7 @@ function quizCountdown(){
     }else{
       clearInterval(counterTime);
       counterElement.textContent = 10;
-      newArray.push("");
+      // wrongArray.push("");
       nextQuestion.click();
     }
   }, 1000);
@@ -94,26 +94,34 @@ nextQuestion.addEventListener("click", () => {
   }else{
     stepperThirdIcon.classList.add("completed")
     quizSection.style.display = "none";
-    resultsSection.style.display = "block"
+    resultsSection.style.display = "block";
+    userScore.textContent = `${correctAnswers}/10`;
+    console.log(wrongArray);
   }
 })
 
 /********************* Count Score *******************/
 
 let card = document.querySelectorAll(".card");
-let newArray = [];
+let wrongArray = [];
+let correctArray = [];
 let correctAnswers = 0;
 
 card.forEach((cards) => {
   cards.onclick = () => {
     if(cards.children[0].textContent === questions[arrayIndex].correct){
+      // wrongArray.push("");
       correctAnswers++;
-      userScore.textContent = `${correctAnswers}/10`;
+      correctArray.push({question: shuffledQuestions[arrayIndex].question, explanation: shuffledQuestions[arrayIndex].explanation});
     }
-    newArray.push(cards.children[1].textContent);
+    else{
+    wrongArray.push({question: shuffledQuestions[arrayIndex].question, explanation: shuffledQuestions[arrayIndex].explanation});
+    }
+
     nextQuestion.click();
     }
 })
+
 
 /********************* Display Results *******************/
 
@@ -128,7 +136,16 @@ showResultsButton.addEventListener("click", () => {
 });
 
 
+let correctObject;
+
 function displayResults(){
+  wrongArray.forEach(item => {
+    correctObject += 
+    `<p>question: ${item.question}</P>
+    <p>explanation: ${item.explanation}</p>
+    `
+    document.querySelector(".wrongAnswers").innerHTML = correctObject;
+  });
   
 }
 
