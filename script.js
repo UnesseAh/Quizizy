@@ -70,8 +70,9 @@ function quizCountdown(){
     }
   }, 1000);
 }
-
-/********************* Progress Bar Counter *******************/
+/**************************************************************/
+/************************ Quiz Countdown **********************/
+/**************************************************************/
 
 function progressBar(){
   progressBarValue += 10;
@@ -95,7 +96,7 @@ nextQuestion.addEventListener("click", () => {
     stepperThirdIcon.classList.add("completed")
     quizSection.style.display = "none";
     resultsSection.style.display = "block";
-    userScore.textContent = `${correctAnswers}/10`;
+    userScore.textContent = correctAnswers*10 + '%';
     console.log(wrongArray);
   }
 })
@@ -110,14 +111,12 @@ let correctAnswers = 0;
 card.forEach((cards) => {
   cards.onclick = () => {
     if(cards.children[0].textContent === questions[arrayIndex].correct){
-      // wrongArray.push("");
       correctAnswers++;
       correctArray.push({question: shuffledQuestions[arrayIndex].question, explanation: shuffledQuestions[arrayIndex].explanation});
     }
     else{
     wrongArray.push({question: shuffledQuestions[arrayIndex].question, explanation: shuffledQuestions[arrayIndex].explanation});
     }
-
     nextQuestion.click();
     }
 })
@@ -136,13 +135,17 @@ showResultsButton.addEventListener("click", () => {
 });
 
 
+/********************* Display Correct and Wrong Answers *******************/
+
 let correctObject;
 
 function displayResults(){
   wrongArray.forEach(item => {
     correctObject += 
-    `<p>question: ${item.question}</P>
-    <p>explanation: ${item.explanation}</p>
+    `<div class="wrongAnswer">
+      <p class="question">Question: ${item.question}</P>
+      <p class="explanation">Explanation: ${item.explanation}</p>
+    </div>
     `
     document.querySelector(".wrongAnswers").innerHTML = correctObject;
   });

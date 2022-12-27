@@ -492,22 +492,47 @@ template {
   display: none;
 }
 
+.secondary-button {
+  color: white;
+  background: none;
+  border: 0px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background-color: rgba(128, 128, 128, 0.174);
+}
+
 .counterContainer {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
   margin-bottom: 20px;
 }
 
 .progressBar {
   width: 40%;
-  height: 1.2em;
+  height: 0.9em;
   outline: 2px solid;
-  border-radius: 1.5em;
   padding: 0px;
 }
 
 .progressCounter {
-  background-color: red;
+  background-color: white;
   height: 100%;
-  border-radius: 1.5em;
+}
+
+.timeContainer {
+  background-color: white;
+  color: #141C3A;
+  padding: 8px;
+  font-size: 1.2em;
 }
 
 header {
@@ -573,6 +598,7 @@ footer div img {
   padding: 1rem;
   margin: 0 auto;
   border: 2px solid white;
+  height: 75vh;
 }
 .information-section h1 {
   color: #FFD300;
@@ -605,21 +631,31 @@ footer div img {
   padding: 1rem;
   margin: 0 auto;
   border: 2px solid white;
+  height: 75vh;
 }
-.quiz-section h2 {
+.quiz-section p {
   text-align: center;
+  display: flex;
+  font-size: 1em;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
 }
 .quiz-section .questions-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .quiz-section .questions-container .card {
-  width: 45%;
+  background-color: #141C3A;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
   box-sizing: border-box;
   border: 2px solid white;
   padding: 20px;
-  margin: 10px;
+  margin: 10px 0;
 }
 .quiz-section .questions-container .card .questionOrder {
   color: #FFD300;
@@ -632,6 +668,12 @@ footer div img {
 .quiz-section .progressBarAndCounterContainer {
   display: flex;
   justify-content: space-between;
+}
+
+.restartAndResult {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 600px) {
@@ -653,9 +695,80 @@ footer div img {
   color: #FFD300;
 }
 
-.results-container {
+.results-section {
+  height: 75vh;
+}
+.results-section h3 {
+  text-align: center;
+  margin: 0;
+}
+.results-section .stats-heading {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bolder;
+}
+.results-section .results-container {
   outline: 2px solid white;
   padding: 20px;
+}
+.results-section .quizStats {
+  display: flex;
+  justify-content: space-evenly;
+  outline: 2px solid white;
+  margin: 1.2em auto;
+  padding: 1.5em;
+}
+.results-section .quizStats .leftStats {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 70px;
+}
+.results-section .quizStats .leftStats span {
+  font-size: 4em;
+  font-weight: bolder;
+}
+.results-section .quizStats .rightStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 70px;
+  border-left: 3px solid white;
+}
+.results-section .quizStats .rightStats p {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0 auto;
+}
+.results-section .quote {
+  font-size: 1.1em;
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+.results-section .restartAndResult {
+  flex-direction: column;
+}
+
+.wrongAnswer {
+  background-color: rgba(255, 50, 50, 0.799);
+  color: white;
+  margin-bottom: 10px;
+  padding: 1em;
+  border-radius: 1em;
+}
+.wrongAnswer .question {
+  margin-bottom: 7px;
+}
+.wrongAnswer .explanation {
+  color: white;
 }
 
 .main-section {
@@ -681,9 +794,11 @@ footer div img {
   width: 500px;
 }
 
-.container {
-  height: 100vh;
+body {
   background-color: #10162F;
+}
+
+.container {
   color: white;
   font-family: "Apercu", sans-serif;
 }

@@ -1,0 +1,16 @@
+
+
+.wrongAnswer {
+    background-color: rgba(255, 50, 50, 0.799);
+    color: white;
+    margin-bottom: 10px;
+    padding: 1em;
+    border-radius: 1em;
+    .question {
+        margin-bottom: 7px;
+    }
+
+    .explanation {
+        color: white;
+    }
+}

@@ -43,13 +43,15 @@
 
         <!-- Quiz Section -->
         <div class="quiz-section" id="quiz-section">
+
             <div class="counterContainer">
-                <div class="progressBar" id="progressBar">
-                    <div class="progressCounter"></div>
-                    <div id="score"></div>
-                    <div class="timeContainer">Time Counter : <span id="timeCounter" class="timeCounter">10</span></div>
-                </div>
+
+                    <div class="timeContainer"><i class="bi bi-stopwatch-fill"></i> Time Limit : <span id="timeCounter" class="timeCounter">10</span></div>
+                    <div class="progressBar" id="progressBar">
+                        <div class="progressCounter"></div>
+                    </div>
             </div>
+            
             <p><span class="question"></span></p>
             <div class="questions-container">
                 <div class="card"><span class="questionOrder">A)</span> <span class="answerA"> </span></div>
@@ -62,16 +64,28 @@
 
         <!-- Results Section -->
         <div class="results-section" id="results-section">
-            <h3 >Your Score <i class="bi bi-stars"></i> :</h3>
-            <div class="userScore"></div>
-            <button class="button" id="restartQuiz" onClick="window.location.reload();">Restart Quiz</button>
-            <button class="button" id="showResults">Display Results</button>
-            <div class="results-container hide">
-                <p>Your Results: </p>
-                <div class="wrongAnswers">
-                   
+            <p class="stats-heading"><i class="bi bi-stars"></i> Quiz Statistics <i class="bi bi-stars"></i></p>
+            <div class="quizStats">
+                <div class="leftStats">
+                    <span class="userScore"></span>
+                </div>
+                <div class="rightStats">
+                    <p class="correctNum"><i class="bi bi-bookmark-check-fill"></i> 4 Correct</p>
+                    <p class="wrongNum"><i class="bi bi-bookmark-x-fill"></i> 6 Wrong  </p>
                 </div>
             </div>
+            <div class="quote">
+                <p class="quoteHead"><i class="bi bi-lightbulb"></i> Learning Tip</p>
+                <p class="quoteTitle">Remember quizzes area tool not a final diagnosis</p>
+            </div>
+            <div class="restartAndResult">
+                <button class="button" id="showResults">Display Results</button>
+                <button class="secondary-button" id="restartQuiz" onClick="window.location.reload();">Restart Quiz</button>
+            </div>
+        </div>
+        <div class="results-container hide">
+            <p>Your Results: </p>
+            <div class="wrongAnswers"></div>
         </div>
     </div>
 

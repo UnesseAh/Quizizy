@@ -1,17 +1,27 @@
 .counterContainer {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
     margin-bottom: 20px ;
 }
 
 .progressBar {
     width: 40%;
-    height: 1.2em;
+    height: .9em;
     outline: 2px solid ;
-    border-radius: 1.5em;
     padding: 0px;
 }
 
 .progressCounter {
-    background-color: red;
+    background-color: white;
     height: 100%;
-    border-radius: 1.5em;
+}
+
+.timeContainer {
+    background-color: white;
+    color: #141C3A;
+    padding: 8px;
+    font-size: 1.2em;
 }

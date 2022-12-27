@@ -3,19 +3,29 @@
     padding: 1rem;
     margin: 0 auto;
     border: 2px solid white;
-    h2 {
+    height: min(75vh);
+    p {
         text-align: center;
+        display: flex;
+        font-size: 1em;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
     }
     .questions-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         .card {
-            width: 45%;
+            background-color: #141C3A;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 10vh;
             box-sizing: border-box;
             border: 2px solid white;
             padding: 20px;
-            margin: 10px;
+            margin: 10px 0;
             .questionOrder {
                 color: $teriary-color;
             }
@@ -33,8 +43,14 @@
 }
 
 
+.restartAndResult {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
 @media (min-width: 600px) {
     .card {
-      width: 100%;
+    width: 100%;
     }
 }

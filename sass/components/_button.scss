@@ -11,3 +11,17 @@
 #nextQuestion {
     display: none;
 }
+
+.secondary-button {
+    color: white;
+    background: none;
+    border: 0px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.secondary-button:hover {
+    background-color: rgba(128, 128, 128, 0.174);
+}
