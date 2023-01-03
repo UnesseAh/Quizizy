@@ -1,11 +1,14 @@
+/************************************************************************/
 /************************** Variable Declarations ***********************/
+/************************************************************************/
+
 //Stepper Elements :
 const stepperSecondIcon = document.querySelector("#secondStep");
 const stepperThirdIcon = document.querySelector("#thirdStep");
 //Components :
 const startQuizButton = document.querySelector("#startQuiz");
 const getResults = document.querySelector("#getResults");
-const nextQuestion = document.querySelector("#nextQuestion");
+// const nextQuestion = document.querySelector("#nextQuestion");
 let progressWidth = document.querySelector(".progressCounter");
 //Quiz Sections :
 const informationSection = document.querySelector("#information-section");
@@ -18,42 +21,70 @@ let answerB = document.querySelector(".answerB");
 let answerC = document.querySelector(".answerC");
 let answerD = document.querySelector(".answerD");
 
-
+/****************************************************************************/
 /********************* Hide Quiz Section & Result Section *******************/
+/****************************************************************************/
+
 
 document.addEventListener("DOMContentLoaded", function() {
   quizSection.style.display = "none";
   resultsSection.style.display = "none";
 });
 
+/******************************************************************/
 /*************************** Start Quiz ***************************/
+/******************************************************************/
+
 
 startQuizButton.addEventListener("click", () => {
   stepperSecondIcon.classList.add("completed");
   quizSection.style.display = "";
   informationSection.style.display = "none";
   progressWidth.style.width = "10%";
-  displayQuestions();
+  getJsonData();
 });
 
-/********************** Shuffle Array ***********************/
 
-const shuffledQuestions = questions.sort(() => Math.random() - .5);
+/***********************************************************/
+/*********************** GetJsonData ***********************/
+/***********************************************************/
 
+function getJsonData(){
+  var myDATA=new XMLHttpRequest();
+    myDATA.onreadystatechange=function(){
+    if(this.status === 200 && this.readyState === 4){
+      quiz = JSON.parse(this.responseText);
+      shuffledQuestions = quiz.sort(() => Math.random() - .5)
+      displayQuestions(shuffledQuestions);
+    }
+  }
+    myDATA.open('GET','/Quizizy/main.php',true);
+    myDATA.send();
+}
+
+
+
+
+/***********************************************************/
 /******************** Display Questions ********************/
+/***********************************************************/
 
 let arrayIndex = 0;
 
-function displayQuestions(){
-  question.textContent = shuffledQuestions[arrayIndex].question;
-  answerA.textContent = shuffledQuestions[arrayIndex].choiceA;
-  answerB.textContent = shuffledQuestions[arrayIndex].choiceB;
-  answerC.textContent = shuffledQuestions[arrayIndex].choiceC;
-  answerD.textContent = shuffledQuestions[arrayIndex].choiceD;
+function displayQuestions(shuffledQuestions){
+  question.textContent = shuffledQuestions[arrayIndex]["question"];
+  answerA.textContent = shuffledQuestions[arrayIndex]["optionA"];
+  answerB.textContent = shuffledQuestions[arrayIndex]["optionB"];
+  answerC.textContent = shuffledQuestions[arrayIndex]["optionC"];
+  answerD.textContent = shuffledQuestions[arrayIndex]["optionD"];
+  checkOptions(shuffledQuestions);
   quizCountdown();
 }
 
-/******************** Quiz Countdown *******************/
+/***********************************************************/
+/********************** Quiz Countdown *********************/
+/***********************************************************/
+
 
 const counterElement = document.querySelector("#timeCounter");
 let counterTime;
@@ -65,33 +96,53 @@ function quizCountdown(){
     }else{
       clearInterval(counterTime);
       counterElement.textContent = 10;
-      // wrongArray.push("");
-      nextQuestion.click();
+      nextQuestion(shuffledQuestions);
     }
   }, 1000);
 }
-/**************************************************************/
-/************************ Quiz Countdown **********************/
-/**************************************************************/
 
-function progressBar(){
-  progressBarValue += 10;
-  if(progressBarValue <= 100){
-    clearInterval(counterTime);
-    counterElement.textContent = 10;
-    progressWidth.style.width = `${progressBarValue}%`;
-    arrayIndex++;
-    displayQuestions();
-  }
-}
-
-/********************* Redirect User to Next Question *******************/
 
 let progressBarValue = 10;
 
-nextQuestion.addEventListener("click", () => {
+/*****************************************************/
+/********************* Count Score *******************/
+/*****************************************************/
+
+let card = document.querySelectorAll(".card");
+let wrongArray = [];
+let correctArray = [];
+let correctAnswers = 0;
+
+function checkOptions(shuffledQuestions){
+  card.forEach((cards) => {
+    cards.onclick = () => {
+      if(cards.children[0].textContent === shuffledQuestions[arrayIndex]["correct"]){
+        correctAnswers++;
+        correctArray.push([shuffledQuestions[arrayIndex]["question"], shuffledQuestions[arrayIndex]["explanation"]]);
+      }
+      else{
+      wrongArray.push([shuffledQuestions[arrayIndex]["question"],shuffledQuestions[arrayIndex]["explanation"]]);
+      }
+      nextQuestion(shuffledQuestions)
+      }
+  })
+}
+
+
+/**************************************************************/
+/*********************** Next Questions ***********************/
+/**************************************************************/
+
+function nextQuestion(shuffledQuestions){
   if(arrayIndex < 9){
-      progressBar();
+    progressBarValue += 10;
+    if(progressBarValue <= 100){
+      clearInterval(counterTime);
+      counterElement.textContent = 10;
+      progressWidth.style.width = `${progressBarValue}%`;
+      arrayIndex++;
+      displayQuestions(shuffledQuestions);
+    }
   }else{
     stepperThirdIcon.classList.add("completed")
     quizSection.style.display = "none";
@@ -99,30 +150,11 @@ nextQuestion.addEventListener("click", () => {
     userScore.textContent = correctAnswers*10 + '%';
     console.log(wrongArray);
   }
-})
+}
 
-/********************* Count Score *******************/
-
-let card = document.querySelectorAll(".card");
-let wrongArray = [];
-let correctArray = [];
-let correctAnswers = 0;
-
-card.forEach((cards) => {
-  cards.onclick = () => {
-    if(cards.children[0].textContent === questions[arrayIndex].correct){
-      correctAnswers++;
-      correctArray.push({question: shuffledQuestions[arrayIndex].question, explanation: shuffledQuestions[arrayIndex].explanation});
-    }
-    else{
-    wrongArray.push({question: shuffledQuestions[arrayIndex].question, explanation: shuffledQuestions[arrayIndex].explanation});
-    }
-    nextQuestion.click();
-    }
-})
-
-
+/*********************************************************/
 /********************* Display Results *******************/
+/*********************************************************/
 
 const userScore = document.querySelector('.userScore');
 
@@ -134,49 +166,22 @@ showResultsButton.addEventListener("click", () => {
   resultsContainer.classList.remove('hide');
 });
 
-
+/***************************************************************************/
 /********************* Display Correct and Wrong Answers *******************/
+/**************************************************************************/
 
 let correctObject;
-
+let f = 0;
 function displayResults(){
   wrongArray.forEach(item => {
     correctObject += 
     `<div class="wrongAnswer">
-      <p class="question">Question: ${item.question}</P>
-      <p class="explanation">Explanation: ${item.explanation}</p>
+      <p class="question">Question: ${item[0]}</P>
+      <p class="explanation">Explanation: ${item[1]}</p>
     </div>
     `
+    f++;
     document.querySelector(".wrongAnswers").innerHTML = correctObject;
   });
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $(function () {
-//     $("#quiz-section").hide();
-//     $("#results-section").hide();
-//     $("#startQuiz").click(function () {
-//         $("#quiz-section").show();
-//         $("#information-section").hide();
-//     })
-// })
